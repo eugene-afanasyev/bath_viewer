@@ -1,31 +1,21 @@
 //
 // Created by eugene on 13.10.2021.
 //
+#include <QVBoxLayout>
+#include "../inc/page.hpp"
 #include "../inc/MainWindow.hpp"
+#include "../inc/StartPage.hpp"
 
-MainWindow::MainWindow() {
-  createMenu();
+MainWindow::MainWindow(QWidget *parent) :
+  QWidget(nullptr), layout(new QVBoxLayout(this)),
+  pagesStack(new QStackedWidget(this)){
 
-  resize(1280, 786);
+  auto* startPage = new StartPage(this);
+  pagesStack->addWidget(startPage);
+  pagesStack->setCurrentIndex(number_of_page(Page::StartPage));
+
+  layout->addWidget(pagesStack);
+
+  resize(1280, 768);
   show();
-}
-
-MainWindow* MainWindow::instance_ = nullptr;
-
-MainWindow *MainWindow::instance() {
-  return instance_ ? instance_ : (instance_ = new MainWindow());
-}
-
-MainWindow::~MainWindow() {
-  delete instance_;
-}
-
-void MainWindow::createMenu() {
-  auto* fileMenu = menuBar()->addMenu(tr("&Файл"));
-  const auto openIcon = QIcon::fromTheme("document-open");
-
-  auto *openAct = new QAction(openIcon, tr("&Открыть"), this);
-  openAct->setStatusTip(tr("&Открыть файл базы данных"));
-
-  fileMenu->addAction(openAct);
 }

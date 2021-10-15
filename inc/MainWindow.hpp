@@ -5,24 +5,21 @@
 #ifndef BATH_VIEWER_INC_MAINWINDOW_HPP_
 #define BATH_VIEWER_INC_MAINWINDOW_HPP_
 
-#include <QMainWindow>
-#include <QMenuBar>
+#include <QWidget>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QStackedWidget>
 #include <QPushButton>
 
-class MainWindow : public QMainWindow {
+class MainWindow : public QWidget {
  Q_OBJECT
 
  public:
-  MainWindow(QWidget*) = delete;
-  static MainWindow* instance();
-
-  ~MainWindow() override;
+  explicit MainWindow(QWidget *parent = nullptr);
 
  private:
-  MainWindow();
-
-  static MainWindow* instance_;
-  void createMenu();
+  QVBoxLayout* layout;
+  QStackedWidget* pagesStack;
 };
 
 #endif //BATH_VIEWER_INC_MAINWINDOW_HPP_

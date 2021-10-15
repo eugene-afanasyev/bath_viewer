@@ -8,7 +8,8 @@ int main(int argc, char *argv[]) {
   QApplication::setFont(font);
 
   QApplication app(argc, argv);
-  MainWindow::instance();
+
+  MainWindow mw;
 
   return QApplication::exec();
 }
