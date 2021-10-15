@@ -15,7 +15,7 @@ find_package(Qt5 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(bath_viewer src/main.cpp inc/MainWindow.hpp src/MainWindow.cpp src/StartPage.cpp inc/StartPage.hpp inc/page.hpp)
+add_executable(bath_viewer src/main.cpp inc/MainWindow.hpp src/MainWindow.cpp src/StartPage.cpp inc/StartPage.hpp inc/page.hpp src/grdtrackPage.cpp inc/grdtrackPage.hpp)
 target_link_libraries(bath_viewer
         Qt5::Core
         Qt5::Gui

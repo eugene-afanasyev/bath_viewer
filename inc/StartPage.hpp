@@ -17,6 +17,9 @@ class StartPage : public QWidget {
  private:
   QVBoxLayout *layout;
   void CreateButtons();
+
+ signals:
+  void loadGRDTrackPage();
 };
 
 #endif //BATH_VIEWER_INC_STARTPAGE_HPP_

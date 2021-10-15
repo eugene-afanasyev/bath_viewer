@@ -9,7 +9,8 @@
 
 
 enum class Page {
-  StartPage = 0
+  StartPage = 0,
+  GRDTrackPage
 };
 
 constexpr auto number_of_page(Page p) noexcept {

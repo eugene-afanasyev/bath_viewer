@@ -20,6 +20,9 @@ class MainWindow : public QWidget {
  private:
   QVBoxLayout* layout;
   QStackedWidget* pagesStack;
+
+ public slots:
+  void loadGRDPage();
 };
 
 #endif //BATH_VIEWER_INC_MAINWINDOW_HPP_
