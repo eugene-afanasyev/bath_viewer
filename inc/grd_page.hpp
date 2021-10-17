@@ -6,6 +6,8 @@
 #define BATH_VIEWER_INC_GRD_PAGE_HPP_
 
 #include <QWidget>
+#include <QLabel>
+#include <QLineEdit>
 #include <QVBoxLayout>
 #include "page.hpp"
 
@@ -17,8 +19,14 @@ class GRDTrackPage : public Page {
  public:
   explicit GRDTrackPage(QWidget *parent = nullptr);
 
- signals:
-  void loadStartPage();
+ private:
+  QHBoxLayout *content_layout;
+  QLineEdit *slat_input_field;
+  QLineEdit *slon_input_field;
+
+  void SetupPage();
+  void CreateMenuBar();
+  void CreateStartPointForm();
 };
 
 }  // namespace page

@@ -29,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
   show();
 
   connect(startPage, &StartPage::loadGRDTrackPage, this, &MainWindow::loadGRDPage);
-  connect(grdPage, &GRDTrackPage::loadStartPage, this, &MainWindow::loadGRDPage);
+  connect(grdPage, &GRDTrackPage::LoadStartPage, this, &MainWindow::loadStartPage);
 }
 
 void MainWindow::loadGRDPage() {

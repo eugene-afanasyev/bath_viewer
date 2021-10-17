@@ -24,9 +24,10 @@ class Page : public QWidget {
 
  protected:
   QVBoxLayout *layout;
+  QHBoxLayout *content_layout;
 
  signals:
-  void loadStartPage();
+  void LoadStartPage();
 };
 
 constexpr auto number_of_page(PageName p) noexcept {
