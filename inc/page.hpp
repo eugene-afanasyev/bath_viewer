@@ -20,10 +20,13 @@ enum class PageName {
 class Page : public QWidget {
  Q_OBJECT
  public:
-  explicit Page(QWidget *parent = nullptr) : QWidget(parent), layout(new QVBoxLayout(this)) {}
+  explicit Page(QWidget *parent = nullptr) : QWidget(parent),
+  layout(new QVBoxLayout(this)), content(new QWidget(this)),
+  content_layout(new QHBoxLayout(content)) {}
 
  protected:
   QVBoxLayout *layout;
+  QWidget *content;
   QHBoxLayout *content_layout;
 
  signals:
