@@ -15,7 +15,7 @@ using bath::page::GRDTrackPage;
 
 GRDTrackPage::GRDTrackPage(QWidget *parent) : Page(parent) {
   layout->setContentsMargins(0, 0, 0, 0);
-  auto *horizLayout = new QHBoxLayout(this);
+  auto *horizLayout = new QHBoxLayout();
 
   // creating menu bar
   auto *menuBar = new QMenuBar(this);
