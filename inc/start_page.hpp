@@ -2,24 +2,30 @@
 // Created by eugene on 14.10.2021.
 //
 
-#ifndef BATH_VIEWER_INC_STARTPAGE_HPP_
-#define BATH_VIEWER_INC_STARTPAGE_HPP_
+#ifndef BATH_VIEWER_INC_START_PAGE_HPP_
+#define BATH_VIEWER_INC_START_PAGE_HPP_
 
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+#include "page.hpp"
 
-class StartPage : public QWidget {
+namespace bath {
+namespace page {
+
+class StartPage : public Page {
  Q_OBJECT
  public:
   explicit StartPage(QWidget *parent = nullptr);
 
  private:
-  QVBoxLayout *layout;
   void CreateButtons();
 
  signals:
   void loadGRDTrackPage();
 };
 
-#endif //BATH_VIEWER_INC_STARTPAGE_HPP_
+}  // namespace page
+}  // namespace bath
+
+#endif //BATH_VIEWER_INC_START_PAGE_HPP_

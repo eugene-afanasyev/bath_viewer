@@ -4,12 +4,13 @@
 
 #include <QVBoxLayout>
 #include <QPushButton>
-#include "../inc/MainWindow.hpp"
-#include "../inc/StartPage.hpp"
 #include "../inc/page.hpp"
+#include "../inc/start_page.hpp"
 
-StartPage::StartPage(QWidget *parent) :
-  QWidget(parent), layout(new QVBoxLayout(this)) {
+using bath::page::StartPage;
+using bath::page::PageName;
+
+StartPage::StartPage(QWidget *parent) : Page(parent) {
   CreateButtons();
 }
 

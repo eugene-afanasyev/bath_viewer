@@ -1,6 +1,8 @@
 #include <QApplication>
 #include <memory>
-#include "../inc/MainWindow.hpp"
+#include "../inc/main_window.hpp"
+
+using bath::MainWindow;
 
 int main(int argc, char *argv[]) {
   QFont font("Courier New", 16);
@@ -9,7 +11,7 @@ int main(int argc, char *argv[]) {
 
   QApplication app(argc, argv);
 
-  MainWindow mw;
+  auto *mw = new MainWindow();
 
   return QApplication::exec();
 }
