@@ -15,7 +15,7 @@ find_package(Qt5 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(bath_viewer src/main.cpp inc/main_window.hpp src/main_window.cpp src/start_page.cpp inc/start_page.hpp inc/page.hpp src/grd_page.cpp inc/grd_page.hpp inc/start_pt_input.hpp src/start_pt_input.cpp inc/separator.hpp)
+add_executable(bath_viewer src/main.cpp inc/main_window.hpp src/main_window.cpp src/start_page.cpp inc/start_page.hpp inc/page.hpp src/grd_page.cpp inc/grd_page.hpp inc/start_pt_input.hpp src/start_pt_input.cpp inc/separator.hpp src/end_pt_input.cpp inc/end_pt_input.hpp src/add_pt_dialog.cpp inc/add_pt_dialog.hpp)
 target_link_libraries(bath_viewer
         Qt5::Core
         Qt5::Gui
