@@ -15,13 +15,14 @@ namespace bath {
 class EndPtInput : public QWidget {
  Q_OBJECT
  public:
-  EndPtInput(QWidget* parent = nullptr);
+  EndPtInput(QWidget *parent = nullptr);
 
  private:
   QHBoxLayout *layout;
   QListWidget *lw;
 
   void AddPoint();
+  void RemovePoint();
 };
 
 }  // namespace bath

@@ -4,6 +4,7 @@
 
 #include <QFormLayout>
 #include <QLabel>
+#include <iostream>
 #include <QDoubleValidator>
 #include <QDialogButtonBox>
 #include "../inc/add_pt_dialog.hpp"
@@ -23,8 +24,8 @@ AddPtDialog::AddPtDialog(QWidget *parent)
   form->addRow(tr("Широта"), lat_field);
   form->addRow(tr("Долгота"), lon_field);
 
-  auto* buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel,
-                             Qt::Horizontal, this);
+  auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel,
+                                         Qt::Horizontal, this);
   form->addRow(buttonBox);
   QObject::connect(buttonBox, &QDialogButtonBox::accepted, this, &AddPtDialog::accept);
   QObject::connect(buttonBox, &QDialogButtonBox::rejected, this, &AddPtDialog::reject);
@@ -33,7 +34,8 @@ AddPtDialog::AddPtDialog(QWidget *parent)
 /// returns <latitude, longitude> value pair
 std::pair<double, double> AddPtDialog::GetPoint() {
   if (exec() == QDialog::Accepted && (lat_field->hasAcceptableInput() && lon_field->hasAcceptableInput()))
-    return {lat_field->text().toDouble(), lon_field->text().toDouble()};
+    return {lat_field->text().replace(',', '.').toDouble(),
+            lon_field->text().replace(',', '.').toDouble()};
   else
     return {0, 0};
 }
