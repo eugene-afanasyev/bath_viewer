@@ -11,6 +11,7 @@
 #include <QVBoxLayout>
 #include "page.hpp"
 #include "start_pt_input.hpp"
+#include "end_pt_input.hpp"
 
 namespace bath {
 namespace page {
@@ -22,6 +23,7 @@ class GRDTrackPage : public Page {
 
  private:
   StartPtInputWidget *start_pt_input_widget;
+  EndPtInput *end_pt_widget;
   QWidget *input_field;
   QVBoxLayout *input_field_layout;
 

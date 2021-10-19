@@ -6,7 +6,7 @@
 #define BATH_VIEWER_INC_END_PT_INPUT_HPP_
 
 #include <QWidget>
-#include <QListView>
+#include <QListWidget>
 #include <QVBoxLayout>
 #include "add_pt_dialog.hpp"
 
@@ -19,7 +19,9 @@ class EndPtInput : public QWidget {
 
  private:
   QHBoxLayout *layout;
-  QListView *lv;
+  QListWidget *lw;
+
+  void AddPoint();
 };
 
 }  // namespace bath

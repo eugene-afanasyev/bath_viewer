@@ -18,7 +18,8 @@ namespace page {
 
 GRDTrackPage::GRDTrackPage(QWidget *parent) :
     Page(parent), start_pt_input_widget(new StartPtInputWidget(this)),
-    input_field(new QWidget(this)), input_field_layout(new QVBoxLayout(input_field)) {
+    input_field(new QWidget(this)), input_field_layout(new QVBoxLayout(input_field)),
+    end_pt_widget (new EndPtInput(this)) {
 
   layout->setContentsMargins(0, 0, 0, 0);
   content->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -40,9 +41,17 @@ void GRDTrackPage::CreateMenuBar() {
 }
 
 void GRDTrackPage::SetupInputField() {
+  input_field->setFont(QFont("Courier New", 12));
+
   input_field_layout->setAlignment(Qt::AlignTop);
   input_field_layout->addWidget(start_pt_input_widget);
   content_layout->addWidget(input_field);
+  input_field_layout->addWidget(Separator::get(this, SepOrientation::kHoriz));
+
+  auto* end_pt_lbl = new QLabel(tr("Конечные точки:"), this);
+  input_field_layout->addWidget(end_pt_lbl);
+
+  input_field_layout->addWidget(end_pt_widget);
 }
 
 }  // namespace page

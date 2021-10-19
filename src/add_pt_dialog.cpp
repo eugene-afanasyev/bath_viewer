@@ -12,8 +12,8 @@ namespace bath {
 
 AddPtDialog::AddPtDialog(QWidget *parent)
     : QDialog(parent), lon_field(new QLineEdit(this)), lat_field(new QLineEdit(this)) {
-  auto *lon_validator = new QDoubleValidator(-180, 180, 10, this);
-  auto *lat_validator = new QDoubleValidator(-90, 90, 10, this);
+  auto *lon_validator = new QDoubleValidator(-180, 180, 6, this);
+  auto *lat_validator = new QDoubleValidator(-90, 90, 6, this);
 
   lon_field->setValidator(lon_validator);
   lat_field->setValidator(lat_validator);

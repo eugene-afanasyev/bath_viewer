@@ -14,8 +14,6 @@ StartPtInputWidget::StartPtInputWidget(QWidget *parent) :
   slon_input_line = new QLineEdit(this);
   slat_input_line = new QLineEdit(this);
 
-  setFont(QFont("Courier New", 12));
-
   auto *start_long_label = new QLabel(tr("Начальная долгота:"), this);
   start_long_label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
   auto *start_lat_label = new QLabel(tr("Начальная широта:"), this);
@@ -27,10 +25,10 @@ StartPtInputWidget::StartPtInputWidget(QWidget *parent) :
   slon_input_line->setValidator(lon_validator);
   slat_input_line->setValidator(lat_validator);
 
-  input_layout->addWidget(start_long_label, 0, 0);
-  input_layout->addWidget(slon_input_line, 0, 1);
-  input_layout->addWidget(start_lat_label, 1, 0);
-  input_layout->addWidget(slat_input_line, 1, 1);
+  input_layout->addWidget(start_lat_label, 0, 0);
+  input_layout->addWidget(slat_input_line, 0, 1);
+  input_layout->addWidget(start_long_label, 1, 0);
+  input_layout->addWidget(slon_input_line, 1, 1);
 }
 
 }
