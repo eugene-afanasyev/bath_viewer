@@ -52,6 +52,8 @@ void GRDTrackPage::SetupInputField() {
   input_field_layout->addWidget(end_pt_lbl);
 
   input_field_layout->addWidget(end_pt_widget);
+  content_layout->addStretch();
+  content_layout->addStretch();
 }
 
 }  // namespace page

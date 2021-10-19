@@ -5,6 +5,7 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QPushButton>
+#include "../inc/pt_item.hpp"
 #include "../inc/end_pt_input.hpp"
 
 namespace bath {
@@ -31,13 +32,18 @@ void EndPtInput::AddPoint() {
   auto *ptDialog = new AddPtDialog(this);
   auto pt = ptDialog->GetPoint();
 
-  QString item = "Широта: ";
-  item.append(QString::number(pt.first));
+  QString item_text = "Широта: ";
+  item_text.append(QString::number(pt.first));
 
-  item.append("; Долгота: ");
-  item.append(QString::number(pt.second));
+  item_text.append("; Долгота: ");
+  item_text.append(QString::number(pt.second));
 
-  lw->addItem(item);
+  auto *pt_item = new ListWidgetPointItem();
+  pt_item->setText(item_text);
+  pt_item->lat = pt.first;
+  pt_item->lon = pt.second;
+
+  lw->addItem(pt_item);
   int row = lw->count() - 1;
   lw->setCurrentRow(row);
 }
@@ -48,6 +54,18 @@ void EndPtInput::RemovePoint() {
 
   auto *item_to_remove = lw->takeItem(lw->currentRow());
   delete item_to_remove;
+}
+
+std::vector<std::pair<double, double>> EndPtInput::GetInputPoints() const {
+  std::vector<std::pair<double, double>> pts(lw->count());
+
+  for (unsigned i = 0; i < lw->count(); ++i) {
+    auto item = dynamic_cast<ListWidgetPointItem*>(lw->item(i));
+    auto lat = item->lat, lon = item->lon;
+    pts.emplace_back(lat, lon);
+  }
+
+  return pts;
 }
 
 }

@@ -8,6 +8,7 @@
 #include <QWidget>
 #include <QListWidget>
 #include <QVBoxLayout>
+#include <vector>
 #include "add_pt_dialog.hpp"
 
 namespace bath {
@@ -20,6 +21,8 @@ class EndPtInput : public QWidget {
  private:
   QHBoxLayout *layout;
   QListWidget *lw;
+
+  std::vector<std::pair<double, double>> GetInputPoints() const;
 
   void AddPoint();
   void RemovePoint();
